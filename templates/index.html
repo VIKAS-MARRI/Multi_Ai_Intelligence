@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Jarvis — Enterprise Assistant</title>
+        <link rel="stylesheet" href="/static/style.css" />
+    </head>
+    <body class="dark">
+        <header class="header">
+            <div class="branding">
+                <h1>Jarvis</h1>
+                <p class="tag">Enterprise Voice Assistant</p>
+            </div>
+            <div class="status-indicator" id="status-indicator">Ready</div>
+        </header>
+
+        <main class="chat-shell">
+            <section class="chat-panel" id="chat-panel">
+                <div class="messages" id="messages"></div>
+                <div class="composer">
+                    <button id="micBtn" class="mic" title="Start voice" aria-label="Start voice">🎤</button>
+                    <input id="input" placeholder="Type your message or press mic" autocomplete="off" />
+                    <button id="sendBtn">Send</button>
+                </div>
+            </section>
+
+            <aside class="sidebar">
+                <div class="card">
+                    <h3>Providers</h3>
+                    <ul id="providers">
+                        <li>Gemini: <span id="prov-gemini">idle</span></li>
+                        <li>OpenAI: <span id="prov-openai">idle</span></li>
+                        <li>DeepSeek: <span id="prov-deepseek">idle</span></li>
+                        <li>Fallback: <span id="prov-fallback">active</span></li>
+                    </ul>
+                </div>
+            </aside>
+        </main>
+
+        <script src="/static/js/app.js"></script>
+    </body>
+</html>

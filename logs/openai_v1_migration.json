@@ -1,0 +1,6 @@
+{
+  "openai_v1_available": true,
+  "notes": [
+    "Services updated to prefer modern OpenAI client with retry/backoff."
+  ]
+}

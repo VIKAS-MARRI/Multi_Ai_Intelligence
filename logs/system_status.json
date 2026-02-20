@@ -1,0 +1,9 @@
+{
+  "production_ready": true,
+  "mode": "operational",
+  "provider": "fallback",
+  "ui": "active",
+  "voice": "active",
+  "backend": "active",
+  "timestamp": 1771612465.2915308
+}

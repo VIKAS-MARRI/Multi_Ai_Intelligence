@@ -1,0 +1,29 @@
+{
+  "openai": {
+    "status": "failed",
+    "latency": 5.32,
+    "detail": {
+      "status": "error",
+      "message": "OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-or-v1*************************************************************6d54. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}",
+      "provider": "openai"
+    }
+  },
+  "deepseek": {
+    "status": "failed",
+    "latency": 5.833,
+    "detail": {
+      "status": "error",
+      "message": "DeepSeek API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-or-v1*************************************************************71ec. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}",
+      "provider": "deepseek"
+    }
+  },
+  "gemini": {
+    "status": "failed",
+    "latency": 1.071,
+    "detail": {
+      "status": "error",
+      "message": "Gemini API error: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "provider": "gemini"
+    }
+  }
+}

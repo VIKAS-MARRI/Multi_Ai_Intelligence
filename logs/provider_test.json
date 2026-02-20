@@ -1,0 +1,29 @@
+{
+  "openai": {
+    "status": "failed",
+    "latency": 0.554,
+    "detail": {
+      "status": "error",
+      "message": "OpenAI API error: Authentication Fails, Your api key: ****71ec is invalid",
+      "provider": "openai"
+    }
+  },
+  "deepseek": {
+    "status": "failed",
+    "latency": 0.609,
+    "detail": {
+      "status": "error",
+      "message": "DeepSeek API error: Authentication Fails, Your api key: ****71ec is invalid",
+      "provider": "deepseek"
+    }
+  },
+  "gemini": {
+    "status": "failed",
+    "latency": 0.475,
+    "detail": {
+      "status": "error",
+      "message": "Gemini API error: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+      "provider": "gemini"
+    }
+  }
+}

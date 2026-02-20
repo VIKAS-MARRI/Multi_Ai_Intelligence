@@ -1,0 +1,83 @@
+{
+  "env_status": {
+    "OPENAI_API_KEY": "present",
+    "DEEPSEEK_API_KEY": "present",
+    "GEMINI_API_KEY": "present"
+  },
+  "provider_results": {
+    "openai": {
+      "authentication_status": "failed",
+      "model": "gpt-3.5-turbo",
+      "latency": 5.505,
+      "detail": {
+        "status": "error",
+        "message": "OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-or-v1*************************************************************6d54. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}",
+        "provider": "openai"
+      }
+    },
+    "deepseek": {
+      "authentication_status": "failed",
+      "model": "deepseek-chat",
+      "latency": 5.12,
+      "detail": {
+        "status": "error",
+        "message": "DeepSeek API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-or-v1*************************************************************71ec. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}",
+        "provider": "deepseek"
+      }
+    },
+    "gemini": {
+      "authentication_status": "failed",
+      "model": "gemini-pro",
+      "latency": 0.369,
+      "detail": {
+        "status": "error",
+        "message": "Gemini API error: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+        "provider": "gemini"
+      }
+    }
+  },
+  "gemini_selected": null,
+  "live_test": {
+    "status_code": 200,
+    "response": {
+      "fused_response": {
+        "fused_response": "Unable to process request at this time.",
+        "message": "No valid responses from AI providers",
+        "status": "error"
+      },
+      "query": "Jarvis production activation confirmation",
+      "responses": {
+        "deepseek": {
+          "message": "DeepSeek API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-or-v1*************************************************************71ec. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}",
+          "provider": "deepseek",
+          "status": "error"
+        },
+        "gemini": {
+          "message": "Gemini API error: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+          "provider": "gemini",
+          "status": "error"
+        },
+        "openai": {
+          "message": "OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-or-v1*************************************************************6d54. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}",
+          "provider": "openai",
+          "status": "error"
+        }
+      },
+      "selected": {
+        "message": "All providers failed",
+        "providers": {},
+        "status": "error"
+      },
+      "status": "success",
+      "timestamp": "2026-02-20T23:59:02.062298"
+    },
+    "latency": 16.774
+  },
+  "final": {
+    "production_ready": false,
+    "primary_provider": null,
+    "fallback_ready": false,
+    "system_health": "degraded",
+    "timestamp": 1771612142.0681276
+  }
+}

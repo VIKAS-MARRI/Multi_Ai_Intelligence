@@ -1,0 +1,93 @@
+{
+  "environment": {
+    "providers": {
+      "OpenAI": "configured",
+      "DeepSeek": "configured",
+      "Gemini": "configured"
+    },
+    "models": {
+      "OPENAI_MODEL": "gpt-3.5-turbo",
+      "DEEPSEEK_MODEL": "deepseek-chat",
+      "GEMINI_MODEL": "gemini-pro"
+    }
+  },
+  "models": {
+    "openai": "gpt-3.5-turbo",
+    "deepseek": "deepseek-chat",
+    "gemini": "gemini-pro"
+  },
+  "provider_tests": {
+    "openai": {
+      "status": "failed",
+      "latency": 0.554,
+      "detail": {
+        "status": "error",
+        "message": "OpenAI API error: Authentication Fails, Your api key: ****71ec is invalid",
+        "provider": "openai"
+      }
+    },
+    "deepseek": {
+      "status": "failed",
+      "latency": 0.609,
+      "detail": {
+        "status": "error",
+        "message": "DeepSeek API error: Authentication Fails, Your api key: ****71ec is invalid",
+        "provider": "deepseek"
+      }
+    },
+    "gemini": {
+      "status": "failed",
+      "latency": 0.475,
+      "detail": {
+        "status": "error",
+        "message": "Gemini API error: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+        "provider": "gemini"
+      }
+    }
+  },
+  "live_test": {
+    "status_code": 200,
+    "latency": 5.16,
+    "response": {
+      "fused_response": {
+        "fused_response": "Unable to process request at this time.",
+        "message": "No valid responses from AI providers",
+        "status": "error"
+      },
+      "query": "Enterprise production readiness test",
+      "responses": {
+        "deepseek": {
+          "message": "DeepSeek API error: Authentication Fails, Your api key: ****71ec is invalid",
+          "provider": "deepseek",
+          "status": "error"
+        },
+        "gemini": {
+          "message": "Gemini API error: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+          "provider": "gemini",
+          "status": "error"
+        },
+        "openai": {
+          "message": "OpenAI API error: Authentication Fails, Your api key: ****71ec is invalid",
+          "provider": "openai",
+          "status": "error"
+        }
+      },
+      "selected": {
+        "message": "All providers failed",
+        "providers": {},
+        "status": "error"
+      },
+      "status": "success",
+      "timestamp": "2026-02-20T23:28:29.115421"
+    }
+  },
+  "routing": {
+    "fallback_routing": true,
+    "priority": [
+      "openai",
+      "deepseek",
+      "gemini"
+    ]
+  },
+  "primary_provider_ok": null
+}

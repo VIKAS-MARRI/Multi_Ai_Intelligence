@@ -1,0 +1,9 @@
+{
+  "priority": [
+    "gemini",
+    "openai",
+    "deepseek",
+    "fallback"
+  ],
+  "activated": true
+}

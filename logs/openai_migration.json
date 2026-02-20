@@ -1,0 +1,9 @@
+{
+  "openai_client": "OpenAI v1 client attempted",
+  "changes": [
+    "Prefer modern OpenAI `OpenAI` client when available",
+    "Added retry/backoff for OpenAI and DeepSeek requests",
+    "Kept legacy fallback to older openai SDK for compatibility"
+  ],
+  "status": "completed"
+}

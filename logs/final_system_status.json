@@ -1,0 +1,48 @@
+{
+  "gemini_selected_model": "gemini-pro",
+  "provider_key_validity": {
+    "openai": "failed",
+    "deepseek": "failed",
+    "gemini": "failed"
+  },
+  "openai_migration": "completed",
+  "working_providers": [],
+  "fallback_readiness": true,
+  "production_readiness": "not_ready",
+  "live_test": {
+    "status_code": 200,
+    "latency": 55.584,
+    "response": {
+      "fused_response": {
+        "fused_response": "Unable to process request at this time.",
+        "message": "No valid responses from AI providers",
+        "status": "error"
+      },
+      "query": "Enterprise readiness validation",
+      "responses": {
+        "deepseek": {
+          "message": "DeepSeek API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-or-v1*************************************************************71ec. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}",
+          "provider": "deepseek",
+          "status": "error"
+        },
+        "gemini": {
+          "message": "Gemini API error: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+          "provider": "gemini",
+          "status": "error"
+        },
+        "openai": {
+          "message": "OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-or-v1*************************************************************6d54. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}",
+          "provider": "openai",
+          "status": "error"
+        }
+      },
+      "selected": {
+        "message": "All providers failed",
+        "providers": {},
+        "status": "error"
+      },
+      "status": "success",
+      "timestamp": "2026-02-20T23:43:43.296222"
+    }
+  }
+}
