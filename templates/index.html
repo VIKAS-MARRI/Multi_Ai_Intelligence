@@ -1,43 +1,183 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>Jarvis — Enterprise Assistant</title>
-        <link rel="stylesheet" href="/static/style.css" />
-    </head>
-    <body class="dark">
-        <header class="header">
-            <div class="branding">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Jarvis - Enterprise Voice Assistant" />
+    <title>Jarvis Enterprise Voice Assistant</title>
+    <link rel="stylesheet" href="../app/static/css/styles.css" />
+</head>
+<body>
+    <!-- Background gradient -->
+    <div class="background-gradient"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <!-- Logo -->
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">⚡</div>
                 <h1>Jarvis</h1>
-                <p class="tag">Enterprise Voice Assistant</p>
             </div>
-            <div class="status-indicator" id="status-indicator">Ready</div>
+            <p class="tagline">Enterprise Assistant</p>
+        </div>
+
+        <!-- Provider Status Cards -->
+        <div class="providers-section">
+            <h3 class="section-title">Provider Status</h3>
+            
+            <div class="provider-card" id="provider-gemini">
+                <div class="provider-header">
+                    <span class="provider-icon">🔮</span>
+                    <span class="provider-name">Gemini</span>
+                </div>
+                <div class="provider-status">
+                    <span class="status-indicator idle"></span>
+                    <span class="status-text">Idle</span>
+                </div>
+            </div>
+
+            <div class="provider-card" id="provider-openai">
+                <div class="provider-header">
+                    <span class="provider-icon">🤖</span>
+                    <span class="provider-name">OpenAI</span>
+                </div>
+                <div class="provider-status">
+                    <span class="status-indicator idle"></span>
+                    <span class="status-text">Idle</span>
+                </div>
+            </div>
+
+            <div class="provider-card" id="provider-deepseek">
+                <div class="provider-header">
+                    <span class="provider-icon">🎯</span>
+                    <span class="provider-name">DeepSeek</span>
+                </div>
+                <div class="provider-status">
+                    <span class="status-indicator idle"></span>
+                    <span class="status-text">Idle</span>
+                </div>
+            </div>
+
+            <div class="provider-card" id="provider-fallback">
+                <div class="provider-header">
+                    <span class="provider-icon">🔄</span>
+                    <span class="provider-name">Fallback</span>
+                </div>
+                <div class="provider-status">
+                    <span class="status-indicator active"></span>
+                    <span class="status-text">Active</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings -->
+        <div class="sidebar-footer">
+            <button class="settings-btn" id="settings-btn" title="Settings">
+                <span class="setting-icon">⚙️</span>
+                Settings
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Chat Container -->
+    <main class="main-container">
+        <!-- Header -->
+        <header class="chat-header">
+            <div class="header-content">
+                <h2>Chat with Jarvis</h2>
+                <p class="header-subtitle">Powered by advanced AI models</p>
+            </div>
+            <div class="header-actions">
+                <button class="header-btn" id="clear-chat-btn" title="Clear chat">
+                    🗑️
+                </button>
+            </div>
         </header>
 
-        <main class="chat-shell">
-            <section class="chat-panel" id="chat-panel">
-                <div class="messages" id="messages"></div>
-                <div class="composer">
-                    <button id="micBtn" class="mic" title="Start voice" aria-label="Start voice">🎤</button>
-                    <input id="input" placeholder="Type your message or press mic" autocomplete="off" />
-                    <button id="sendBtn">Send</button>
+        <!-- Chat Area -->
+        <div class="chat-container">
+            <div class="messages-area" id="messages-area">
+                <!-- Welcome message -->
+                <div class="system-message">
+                    <div class="system-content">
+                        <h2>Welcome to Jarvis</h2>
+                        <p>Your enterprise voice assistant powered by multiple AI models</p>
+                        <p class="system-hint">💡 Try asking me anything - I can use Gemini, OpenAI, DeepSeek, or fallback models</p>
+                    </div>
                 </div>
-            </section>
+            </div>
 
-            <aside class="sidebar">
-                <div class="card">
-                    <h3>Providers</h3>
-                    <ul id="providers">
-                        <li>Gemini: <span id="prov-gemini">idle</span></li>
-                        <li>OpenAI: <span id="prov-openai">idle</span></li>
-                        <li>DeepSeek: <span id="prov-deepseek">idle</span></li>
-                        <li>Fallback: <span id="prov-fallback">active</span></li>
-                    </ul>
+            <!-- Typing indicator (hidden by default) -->
+            <div class="typing-indicator" id="typing-indicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <footer class="input-area">
+            <div class="input-wrapper">
+                <!-- Microphone Button -->
+                <button class="mic-button" id="mic-button" title="Voice input">
+                    <span class="mic-icon">🎤</span>
+                </button>
+
+                <!-- Text Input -->
+                <input 
+                    type="text" 
+                    class="message-input" 
+                    id="message-input" 
+                    placeholder="Type a message or click the microphone..."
+                    autocomplete="off"
+                />
+
+                <!-- Send Button -->
+                <button class="send-button" id="send-button" title="Send message">
+                    <span class="send-icon">➤</span>
+                </button>
+            </div>
+
+            <!-- Input hints -->
+            <div class="input-hints">
+                <span class="hint">Press Enter to send</span>
+                <span class="hint">or click the microphone for voice input</span>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Settings Modal (hidden by default) -->
+    <div class="modal" id="settings-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button class="modal-close" id="modal-close">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label for="auto-scroll-toggle">
+                        <input type="checkbox" id="auto-scroll-toggle" checked />
+                        Auto-scroll to latest message
+                    </label>
                 </div>
-            </aside>
-        </main>
+                <div class="setting-group">
+                    <label for="sound-toggle">
+                        <input type="checkbox" id="sound-toggle" checked />
+                        Enable notification sounds
+                    </label>
+                </div>
+                <div class="setting-group">
+                    <label for="timestamp-toggle">
+                        <input type="checkbox" id="timestamp-toggle" />
+                        Show message timestamps
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <script src="/static/js/app.js"></script>
-    </body>
+    <!-- Scripts -->
+    <script src="../app/static/js/script.js"></script>
+</body>
 </html>
